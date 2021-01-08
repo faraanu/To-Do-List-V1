@@ -1,0 +1,34 @@
+<%- include("header") %>
+
+    <div class="list-box shadow">
+        <h1>Today is <%= date %></h1>
+        <div class="list-group">
+            <% for (var i = 0; i < listOfItems.length; i++) { %>
+            <div class="list-group-item td-item">
+                <div class="row">
+                    <div class="col-1">
+                        <input type="checkbox" name="checkbox<%=i%>" id="checkbox<%=i%>">
+                    </div>
+                    <div class="col-9 td-item-text">
+                        <%= listOfItems[i] %>
+                    </div>
+                    <form class="col-2" action="/" method="POST">
+                        <button type="submit" class="btn btn-danger btn-sm td-btn d-inline" name="submit" value="<%=i%>">Remove</button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+        
+        </form>
+        <form class="form-inline mt-3" action="/" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control mr-2" name="newItem" placeholder="Enter a new task..."
+                    autocomplete="off">
+                <button type="submit" class="btn btn-primary" name="submit" value="<%= listTitle %>">Add</button>
+            </div>
+        </form>
+    </div>
+
+<%- include("footer") %>
